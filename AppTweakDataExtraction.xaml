@@ -96,28 +96,33 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="433.6,270.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,300" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="ui:Browser" Name="AppTweakWindow" />
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence DisplayName="AppTweakDataExtraction" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="AppTweakDataExtraction" sap:VirtualizedContainerService.HintSize="241.6,208" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="Out_FilteredDT" />
             <Variable x:TypeArguments="x:String" Name="TotalMonDwnlds" />
+            <Variable x:TypeArguments="x:String" Name="AppTweakURL">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:String">https://app.apptweak.com/applications/ios/888197080/keywords?country=in&amp;language=en&amp;device=iphone&amp;</Literal>
+              </Variable.Default>
+            </Variable>
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[AppTweakWindow]" Url="https://app.apptweak.com/applications/ios/888197080/keywords?country=in&amp;language=en&amp;device=iphone&amp;">
+          <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="466.4,171.2" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[AppTweakWindow]" Url="[AppTweakURL]">
             <ui:OpenBrowser.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1869.6,6193.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="241.6,331.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="FoundKeywords" />
                   </Sequence.Variables>
@@ -126,7 +131,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="1828,117.6" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="pgdn" KeyModifiers="None" SpecialKey="True">
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="pgdn" KeyModifiers="None" SpecialKey="True">
                     <ui:SendHotkey.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="906b873f-5b1d-420a-ab3a-ffff69fe59b2">
                         <ui:Target.TimeoutMS>
@@ -138,7 +143,7 @@
                       </ui:Target>
                     </ui:SendHotkey.Target>
                   </ui:SendHotkey>
-                  <ui:UiElementExists DisplayName="Element 'KEYWORDS' Exists " Exists="[FoundKeywords]" sap:VirtualizedContainerService.HintSize="1828,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                  <ui:UiElementExists DisplayName="Element 'KEYWORDS' Exists " Exists="[FoundKeywords]" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                     <ui:UiElementExists.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b35f4cda-a15a-408a-a8c9-0e5291e94a6b" InformativeScreenshot="aa3217c23d16674468fd06a6d5e1c2ac" Selector="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='  Keywords   ' tag='TH' /&gt;">
                         <ui:Target.TimeoutMS>
@@ -150,15 +155,15 @@
                       </ui:Target>
                     </ui:UiElementExists.Target>
                   </ui:UiElementExists>
-                  <If Condition="[FoundKeywords]" DisplayName="If Keyword element exists" sap:VirtualizedContainerService.HintSize="1828,5796" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[FoundKeywords]" DisplayName="If Keyword element exists" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="If_1">
                     <If.Then>
-                      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Indian Rail IRCTC for iphone – ASO Keywords analysis in English - India | AppTwe" sap:VirtualizedContainerService.HintSize="1792.8,5616.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" Version="V1">
+                      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Indian Rail IRCTC for iphone – ASO Keywords analysis in English - India | AppTwe" sap:VirtualizedContainerService.HintSize="433.6,285.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" Version="V1">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1759.2,5400" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="304,909.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="FileName" />
                                 <Variable x:TypeArguments="sd:DataTable" Name="AppTweakDT" />
@@ -173,7 +178,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uix:NClick ClickType="Single" DisplayName="Click 'KeywordsScroll left'" sap:VirtualizedContainerService.HintSize="1717.6,167.2" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+                              <uix:NClick ClickType="Single" DisplayName="Click 'KeywordsScroll left'" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
                                 <uix:NClick.Target>
                                   <uix:TargetAnchorable BrowserURL="https://app.apptweak.com/applications/ios/888197080/keywords?country=in&amp;language=en&amp;device=iphone&amp;" DesignTimeRectangle="287, 675, 20, 20" FriendlyName="'SPAN'" FullSelectorArgument="&lt;webctrl parentid='keywords_analysis_table_head' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='keywords_analysis_table_head' tag='SPAN' type='' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABgSURBVEhLY/j67f9/WuJhZMGNGw/+lxaX/ffz8qEIg8wAmYVhAUhiw/qtcAlyMcgMkFkwPtwCkO0wNqUY2axRC7DiUQsI4lELCOJRCwjiUQsIYqwW0LzCoXmVSRv8/z8AXb06GYx9/wwAAAAASUVORK5CYII=" InformativeScreenshot="64452e917152389f15f7c6d26acce860.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Indian Rail IRCTC for iphone – ASO Keywords analysis in English - India | AppTweak' /&gt;" SearchSteps="FuzzySelector, Image">
                                     <uix:TargetAnchorable.Anchors>
@@ -184,7 +189,7 @@
                                   </uix:TargetAnchorable>
                                 </uix:NClick.Target>
                               </uix:NClick>
-                              <uix:NClick ClickType="Single" DisplayName="Click 'I'" sap:VirtualizedContainerService.HintSize="1717.6,167.2" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left">
+                              <uix:NClick ClickType="Single" DisplayName="Click 'I'" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left">
                                 <uix:NClick.Target>
                                   <uix:TargetAnchorable BrowserURL="https://app.apptweak.com/applications/ios/888197080/keywords?country=in&amp;language=en&amp;device=iphone&amp;" DesignTimeRectangle="1792, 393, 18, 25" FriendlyName="'I'" FullSelectorArgument="&lt;webctrl parentid='bckbn-downloadCsv' tag='I' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='bckbn-downloadCsv' tag='I' type='' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABYAAAAdCAYAAACuc5z4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAEVSURBVEhL7dQ/CsIwGAVw7+fUxUEEoYsgIogHEME7uDt5AhE8ggjFxUUXXcTRNk1UyjOf/ZRWY6qoi/TBg5I/v4YUWsCPksO3/CMsFYY9H26L2wuxkDxnSTY8FyiW/VT7c56zJIdv+QtYYdBIQ9Y2BJa8MxkDHGE7DuCYEEPbowPvS+fJVbyGP0Mplju24zaUkvHxzHgWSmE4QrBRmM7kXRXWIo1fUHGA97BWwtucYk6HYYV+4kTJOt0QS8InATpjQvVPqWteWywLeDGYDVMJX+xOCHY2lPombKzro1SNn0u16/gX4MFKb5sJNEdHYBuieRk3wfz2V+voU1b0qenkbp3Hqw+wjtR3uP+wMmIsCX85OcwBzmdUC7s8F8k7AAAAAElFTkSuQmCC" InformativeScreenshot="ff5aba34225d07a29ed9dbefaa3190ec.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Indian Rail IRCTC for iphone – ASO Keywords analysis in English - India | AppTweak' /&gt;" SearchSteps="FuzzySelector, Image">
                                     <uix:TargetAnchorable.Anchors>
@@ -195,7 +200,7 @@
                                   </uix:TargetAnchorable>
                                 </uix:NClick.Target>
                               </uix:NClick>
-                              <Assign sap:VirtualizedContainerService.HintSize="1717.6,61.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+                              <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[FileName]</OutArgument>
                                 </Assign.To>
@@ -203,9 +208,9 @@
                                   <InArgument x:TypeArguments="x:String">[Directory.GetFiles("C:\Users\kanme\Downloads","keywords_analysis_for--Indian_Rail_IRCTC,_PNR_Status_*.csv").OrderByDescending(Function(d) New FileInfo(d).CreationTime).Tolist(0)]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[AppTweakDT]" Delimitator="Semicolon" DisplayName="Read CSV" FilePath="[FileName]" sap:VirtualizedContainerService.HintSize="1717.6,155.2" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
-                              <ui:WriteRange AddHeaders="True" DataTable="[AppTweakDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="1717.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="ApptweakTemp.xlsx" />
-                              <Assign sap:VirtualizedContainerService.HintSize="1717.6,61.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+                              <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[AppTweakDT]" Delimitator="Semicolon" DisplayName="Read CSV" FilePath="[FileName]" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+                              <ui:WriteRange AddHeaders="True" DataTable="[AppTweakDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="ApptweakTemp.xlsx" />
+                              <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:Int32">[AT_KeywordCount]</OutArgument>
                                 </Assign.To>
@@ -213,7 +218,7 @@
                                   <InArgument x:TypeArguments="x:Int32">[AppTweakDT.Rows.Count]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign sap:VirtualizedContainerService.HintSize="1717.6,61.6" sap2010:WorkflowViewState.IdRef="Assign_12">
+                              <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_12">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:Int32">[AF_KeywordCount]</OutArgument>
                                 </Assign.To>
@@ -221,7 +226,7 @@
                                   <InArgument x:TypeArguments="x:Int32">[io_TempDT.Rows.Count]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1717.6,231.2" sap2010:WorkflowViewState.IdRef="CommentOut_10">
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_10">
                                 <ui:CommentOut.Body>
                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,152.8" sap2010:WorkflowViewState.IdRef="Sequence_23">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -233,7 +238,7 @@
                                   </Sequence>
                                 </ui:CommentOut.Body>
                               </ui:CommentOut>
-                              <If Condition="[AF_KeywordCount=AT_KeywordCount]" DisplayName="If the keyword list in AppFollow is different from AppTweak" sap:VirtualizedContainerService.HintSize="1717.6,3964" sap2010:WorkflowViewState.IdRef="If_2">
+                              <If Condition="[AF_KeywordCount=AT_KeywordCount]" DisplayName="If the keyword list in AppFollow is different from AppTweak" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="If_2">
                                 <If.Then>
                                   <Sequence sap:VirtualizedContainerService.HintSize="627.2,1096.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -535,7 +540,7 @@
                           </ActivityAction>
                         </uix:NApplicationCard.Body>
                         <uix:NApplicationCard.TargetApp>
-                          <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="89bc7f572d190888803a042fe46f2cd0.png" Selector="&lt;html app='chrome.exe' title='Indian Rail IRCTC for iphone – ASO Keywords analysis in English - India | AppTweak'/&gt;" Url="https://app.apptweak.com/applications/ios/888197080/keywords?country=in&amp;language=en&amp;device=iphone&amp;" />
+                          <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="89bc7f572d190888803a042fe46f2cd0.png" Selector="&lt;html app='chrome.exe' title='Indian Rail IRCTC for iphone – ASO Keywords analysis in English - India | AppTweak'/&gt;" Url="[AppTweakURL]" />
                         </uix:NApplicationCard.TargetApp>
                       </uix:NApplicationCard>
                     </If.Then>
@@ -548,11 +553,11 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,105.6" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ActivityAction x:TypeArguments="s:Exception">

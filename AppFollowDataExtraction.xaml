@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="AppFollowDataExtraction" sap:VirtualizedContainerService.HintSize="1056,3984" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="AppFollowDataExtraction" sap:VirtualizedContainerService.HintSize="836.8,610.4" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
       <x:String>System.Activities</x:String>
@@ -35,7 +35,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="35">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="70">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -71,6 +71,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.GSuite.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -87,9 +88,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="433.6,304" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,300" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Sequence inside try-catch" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="Sequence inside try-catch" sap:VirtualizedContainerService.HintSize="304,1027.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="FileName" />
             <Variable x:TypeArguments="sd:DataTable" Name="ExcelContentDT" />
@@ -97,20 +98,29 @@
             <Variable x:TypeArguments="sd:DataTable" Name="Out_FilteredDT" />
             <Variable x:TypeArguments="x:String" Name="dt" />
             <Variable x:TypeArguments="x:Boolean" Name="ElementFound" />
-            <Variable x:TypeArguments="x:Int32" Name="AF_KeywordCount" />
+            <Variable x:TypeArguments="x:String" Name="DownloadsFolder">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:String">C:\Users\kanme\Downloads</Literal>
+              </Variable.Default>
+            </Variable>
+            <Variable x:TypeArguments="x:String" Name="AppFollowURL">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:String">https://watch.appfollow.io/apps/smartapps-trivia-tribe/keywords</Literal>
+              </Variable.Default>
+            </Variable>
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="946.4,2437.6" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[AppFollowWindow]" Url="https://watch.appfollow.io/apps/smartapps-trivia-tribe/keywords">
+          <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="466.4,171.2" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[AppFollowWindow]" Url="[AppFollowURL]">
             <ui:OpenBrowser.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="912.8,2335.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -270,24 +280,24 @@
               </ActivityAction>
             </ui:OpenBrowser.Body>
           </ui:OpenBrowser>
-          <ui:CloseTab Browser="[AppFollowWindow]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="946.4,22.4" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
-          <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="946.4,22.4" sap2010:WorkflowViewState.IdRef="Delay_2" />
-          <Assign sap:VirtualizedContainerService.HintSize="946.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <ui:CloseTab Browser="[AppFollowWindow]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
+          <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="Delay_2" />
+          <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[FileName]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[Directory.GetFiles("C:\Users\kanme\Downloads","keywords_iphone*.xlsx").OrderByDescending(Function(d) New FileInfo(d).CreationTime).Tolist(0)]</InArgument>
+              <InArgument x:TypeArguments="x:String">[Directory.GetFiles(DownloadsFolder,"keywords_iphone*.xlsx").OrderByDescending(Function(d) New FileInfo(d).CreationTime).Tolist(0)]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:ReadRange AddHeaders="True" DataTable="[ExcelContentDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="946.4,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="[FileName]">
+          <ui:ReadRange AddHeaders="True" DataTable="[ExcelContentDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="[FileName]">
             <ui:ReadRange.Range>
               <InArgument x:TypeArguments="x:String">
                 <Literal x:TypeArguments="x:String" Value="" />
               </InArgument>
             </ui:ReadRange.Range>
           </ui:ReadRange>
-          <Assign sap:VirtualizedContainerService.HintSize="946.4,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[dt]</OutArgument>
             </Assign.To>
@@ -295,7 +305,7 @@
               <InArgument x:TypeArguments="x:String">[System.DateTime.Now.ToString("yyyy-MM-dd")]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:FilterDataTable DataTable="[ExcelContentDT]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="946.4,162.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[Out_FilteredDT]" SelectColumnsMode="Keep">
+          <ui:FilterDataTable DataTable="[ExcelContentDT]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[Out_FilteredDT]" SelectColumnsMode="Keep">
             <ui:FilterDataTable.Filters>
               <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                 <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
@@ -318,28 +328,22 @@
               </scg:List>
             </ui:FilterDataTable.SelectColumns>
           </ui:FilterDataTable>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="946.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="AppTweakDataExtraction.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="AppTweakDataExtraction.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_TempDT">[Out_FilteredDT]</InOutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:WriteRange AddHeaders="True" DataTable="[Out_FilteredDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="946.4,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="temp.xlsx" />
-          <Assign sap:VirtualizedContainerService.HintSize="946.4,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:Int32">[AF_KeywordCount]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:Int32">[Out_FilteredDT.Rows.Count]</InArgument>
-            </Assign.Value>
-          </Assign>
+          <ui:WriteRange AddHeaders="True" DataTable="[Out_FilteredDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="temp.xlsx" />
+          <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="Delete_1" Path="temp.xlsx" />
+          <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="Delete_2" Path="AppTweakTemp.xlsx" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,139.2" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ActivityAction x:TypeArguments="s:Exception">
